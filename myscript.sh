@@ -1,5 +1,17 @@
 #! /bin/bash
 
+#Deleting all other folders
+
+keep=("Documents" "Desktop" "Downloads" "Music" "Pictures" "Public" "Videos" "Templates" "myscript.sh")  # List of folders to keep
+
+for file in *; do
+  if [[ " ${keep[@]} " =~ " ${file} " ]]; then
+    echo "Keeping $file"
+  else
+    echo "Deleting $file"
+    rm -rf "$file"
+  fi
+done
 
 for file in "Documents" "Desktop" "Downloads"
 do
